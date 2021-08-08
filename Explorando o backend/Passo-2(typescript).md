@@ -48,8 +48,8 @@ tsc --init
 
 Isso irá gerar um arquivo tsconfig.json que terá a seguinte configuração:
 
-![https://i.imgur.com/ZSTFtZz.png](https://imgur.com/ZSTFtZz)
 ![tsconfig.json](https://i.imgur.com/ZSTFtZz.png)
+![tsconfig.json](https://i.imgur.com/q1Qt4AY.png)
 
 **Configurando o tsconfig.json**
 Neste arquivo, precisamos fazer algumas configurações básicas:
