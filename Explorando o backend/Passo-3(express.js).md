@@ -1,0 +1,142 @@
+# EXPRESS JS
+
+Olá! Para começar o back-end necessitamos instalar alguns pacotes do node para facilitar nossa vida. De início necessitamos o typescript, o express e o cors. Já nas devDependencies, necessitamos do @types/Express e o @types/node. As bibliotecas @types fornecem as tipagens das bibliotecas utilizadas para o typescript.
+
+O que são as devDependencies? São as dependencias de desenvolvimento utilizadas na construção do projeto, mas que não precisam estar disponíveis para o usuário final. 
+
+## **Instalando o Express e o cors:**
+
+```
+npm install express
+npm install cors
+
+//ou então para ficar mais simples: 
+
+npm i express cors
+```
+
+**Instalando o types do express, do node e do cors:**
+
+```
+npm install @types/node --save-dev
+npm install  @types/express --save-dev
+npm install @types/cors --save-dev
+
+//De um jeito mais simples: 
+npm i @types/node @types/express @types/cors -D
+```
+
+Você pode instalar mais de um pacote de uma só vez, é só separá-los por espaço. O -D é uma abreviação para --save-dev (que cria dev dependencies), assim como o i é uma abreviação para install.  
+
+## **Iniciando o servidor:**
+
+Para iniciar o servidor necessitamos importar e invocar a função que a biblioteca express exporta por padrão (o famoso export default). Ah! Por organização faremos isso no arquivo app.ts 
+
+```
+import express, { Express } from 'express'
+
+const app: Express = express();
+
+// Na primeira linha são importados a função padrão do express seguida da sua tipagem entre chaves. Na próxima linha vemos a função ser invocada
+// através da const app, e a tipagem sendo utilizada nela.
+```
+
+Beleza, mas é só isso? Não! Precisamos também configurar dois serviços para a inicialização correta do servidor, um que coverte o body das nossas resposta em json e outro que evita o erro de CORS (usa o google pra saber mais sobre isso, rsrs)
+
+Como fazer isso:
+
+```
+import express, { Express } from 'express'
+import cors from 'cors'
+
+const app: Express = express();
+
+app.use(express.json());
+app.use(cors());
+
+```
+
+Por fim, o servidor precisa se comunicar com alguma porta da nossa máquina que faremos utilizando a seguinte função:
+
+```
+app.listen(3003, () => {
+    console.log('Servidor rodando em http://localhost:3003')
+})
+```
+
+Repare que na função app.listen recebemos dois parâmetros: o primeiro é a porta do localhost onde queremos que ocorra a comunicação. Ali a porta não necessariamente tem que ser a 3003, você pode escolher, mas tenha cuidado para não escolher uma porta que seja utilizada por outra aplicação!
+Já o segundo parâmetro é uma função de callback que serve para nos sinalizar se a aplicação está rodando. Se a mensagem do console.log aparecer em seu terminal significa que tá tudo certo!
+
+Para facilitar a vida de todos, o código inteiro do app.ts fica assim: 
+```
+import express, { Express } from 'express'
+import cors from 'cors'
+
+const app: Express = express();
+
+app.use(express.json());
+app.use(cors());
+
+app.listen(3003, () => {
+    console.log ('Servidor rodando')
+})
+
+```
+Mas é só isso? Sim! Assim já podemos iniciar nosso servidor, mas ainda nesse estágio inicial podemos melhorar um pouco o código, deixando ele um pouco mais robusto e a prova de erros da seguinte maneira:
+
+```
+import express, { Express } from 'express'
+import cors from 'cors'
+
+const app: Express = express();
+
+app.use(express.json());
+app.use(cors());
+
+const portNumber = 3003
+
+const server = app.listen(portNumber, () => {
+   if(server) {
+       console.log(`Servidor rodando em http://localhost:${portNumber}`)
+   } else {
+       console.error('Servidor não iniciado')
+   }
+});
+
+```
+
+Aqui, criei a const portNumber para garantir que o console.log mostre corretamente a porta em que o servidor está rodando (note que a mensagem do console.log está em uma template string para podermos chamar a variável. Lembrando que você pode escolher o número da porta! Só tenha cuidado para não escolher uma que já esteja sendo utilizada. Evite a 3000). 
+Além disso criei também a const server para poder utilizar um if/else para termos um melhor retorno no terminal se o servidor realmente está rodando ou não. 
+
+## **Resumo dos comandos:**
+Vamos juntar todos os comandos aprendidos até então aqui na ordem de sua execução:
+
+
+```
+npm init
+//cria um package.json que deve ser preenchido
+
+npm init --yes 
+//cria um package.json com valores padrão
+
+npm install -D typescript
+//instala o TypeScript como devDependencie
+
+tsc --init
+// cria um arquivo de configuração do typescript
+
+npm install express
+npm install cors
+// instala o express e o cors
+
+npm install @types/node --save-dev
+npm install  @types/express --save-dev
+npm install @types/cors --save-dev
+//instala as tipagens do node, express e cors
+
+//Como digitar os comandos em menos linhas:
+
+npm i express cors
+npm i -D @types/node  @types/express @types/cors typescript
+```
+Para transpilar o arquivo.ts no terminal, digite :
