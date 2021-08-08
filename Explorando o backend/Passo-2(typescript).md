@@ -48,7 +48,7 @@ tsc --init
 
 Isso irá gerar um arquivo tsconfig.json que terá a seguinte configuração:
 
-![tsconfig.json](https://imgur.com/ZSTFtZz)
+![https://imgur.com/ZSTFtZz](https://imgur.com/ZSTFtZz)
 ![tsconfig.json](https://imgur.com/q1Qt4AY)
 
 **Configurando o tsconfig.json**
