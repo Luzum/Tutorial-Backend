@@ -11,7 +11,7 @@ app.method(path, handler)
 ### Vamos aos exemplos!
 
 Para começar, se já não tiver criado, crie o arquivo index.ts. Lá você importará o código da pasta app.ts
-Primeiro volte no app.ts e exporte a const app, desta maneira:
+Primeiro volte no app.ts e certifique-se que está exportando a const app, desta maneira:
 
 ```
 import express, { Express } from 'express'
@@ -35,6 +35,7 @@ const server = app.listen(portNumber, () => {
 export default app
 
 ```
+**Guarde bem esse código da pasta app!Ele será basicamente o mesmo em todas aplicações do backend que você fizer!**
 No index.ts importe o app e comece a criação do endpoint:
 
 ```
@@ -71,9 +72,14 @@ Assim, se seu servidor já estiver rodando se você abrir o caminho http://local
 "message": "Venho do Express!"
 ```
 
-**Como fica no vscode e no postman:**
+**Como fica nosso vscode:**
 ![vscode](https://i.imgur.com/8xIgmYo.png)
 ![vscode2](https://i.imgur.com/envxloq.png)
-![postman](https://i.imgur.com/hdjymBp.png)
 
+**Como fica o postman:**
+![postman](https://i.imgur.com/hdjymBp.png)
+O que significa o endereço http://localhost:3003/primeiroEndpoint ?
+o localhost:3003 é a comunicação com o seu servidor interno que você definiu no arquivo app.ts (se lembra da porta 3003?) e após ele o          /primeiroEndpoint foi o endereço definido no  método app.get. Aqui você poderia escolher qualquer outro nome que seu endpoint continuaria funcionando normalmente (desde que você também altere o endereço em sua API). Então vai lá e da uma brincada mudando o endereço pra ver o que acontece!
 **Note que no postman a mensagem só aparece depois de se clicar no botão Send**
+
+Parabéns! Criamos nosso primeiro endpoint! 

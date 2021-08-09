@@ -2,7 +2,7 @@
 
 Olá! Para começar o back-end necessitamos instalar alguns pacotes do node para facilitar nossa vida. De início necessitamos o typescript, o express e o cors. Já nas devDependencies, necessitamos do @types/Express e o @types/node. As bibliotecas @types fornecem as tipagens das bibliotecas utilizadas para o typescript.
 
-O que são as devDependencies? São as dependencias de desenvolvimento utilizadas na construção do projeto, mas que não precisam estar disponíveis para o usuário final. 
+O que são as devDependencies? São as dependências de desenvolvimento utilizadas na construção do projeto, mas que não precisam estar disponíveis para o usuário final. 
 
 ## **Instalando o Express e o cors:**
 
@@ -33,7 +33,7 @@ Vamos facilitar nossa vida um pouco mais? Agora que vamos criar um servidor, sem
 ```
 npm i -D ts-node-dev
 ```
-Com isso, podemos executar diretamente um arquivo typescript, não precisaremos sempre transpilar as nossas alteraçõe. No package.json podemos criar um novo script:
+Com isso, podemos executar diretamente um arquivo typescript, não precisaremos sempre transpilar as nossas alterações. No package.json podemos criar um novo script:
 
 ```
 "dev-start": "ts-node-dev src/index.ts"
@@ -57,7 +57,7 @@ const app: Express = express();
 // Na próxima linha vemos a função ser invocada através da const app, e a tipagem sendo utilizada nela.
 ```
 
-Beleza, mas é só isso? Não! Precisamos também configurar dois serviços para a inicialização correta do servidor, um que coverte o body das nossas resposta em json e outro que evita o erro de CORS (usa o google pra saber mais sobre isso, rsrs)
+Beleza, mas é só isso? Não! Precisamos também configurar dois serviços para a inicialização correta do servidor, um que converte o body das nossas resposta em json e outro que evita o erro de CORS (usa o google pra saber mais sobre isso, rsrs)
 
 Como fazer isso:
 
