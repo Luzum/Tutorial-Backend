@@ -38,7 +38,7 @@ Com isso, podemos executar diretamente um arquivo typescript, não precisaremos 
 ```
 "dev-start": "ts-node-dev src/index.ts"
 // ou ainda, de maneira abreviada:
-"dev": "tsnd src/index.ts
+"dev": "tsnd src/index.ts"
 ```
 Esse script sempre recarregará sozinho!
 **Nossos scripts ficarão assim:**
@@ -53,8 +53,8 @@ import express, { Express } from 'express'
 
 const app: Express = express();
 
-// Na primeira linha são importados a função padrão do express seguida da sua tipagem entre chaves. Na próxima linha vemos a função ser invocada
-// através da const app, e a tipagem sendo utilizada nela.
+// Na primeira linha são importados a função padrão do express seguida da sua tipagem entre chaves.
+// Na próxima linha vemos a função ser invocada através da const app, e a tipagem sendo utilizada nela.
 ```
 
 Beleza, mas é só isso? Não! Precisamos também configurar dois serviços para a inicialização correta do servidor, um que coverte o body das nossas resposta em json e outro que evita o erro de CORS (usa o google pra saber mais sobre isso, rsrs)
@@ -119,10 +119,18 @@ const server = app.listen(portNumber, () => {
    }
 });
 
+export default app
+
 ```
 
 Aqui, criei a const portNumber para garantir que o console.log mostre corretamente a porta em que o servidor está rodando (note que a mensagem do console.log está em uma template string para podermos chamar a variável. Lembrando que você pode escolher o número da porta! Só tenha cuidado para não escolher uma que já esteja sendo utilizada. Evite a 3000). 
 Além disso criei também a const server para poder utilizar um if/else para termos um melhor retorno no terminal se o servidor realmente está rodando ou não. 
+
+No vscode fica assim: 
+![expresscors](https://i.imgur.com/cpogXir.png)
+**Importante:**
+A *const app* é importada no arquivo index.ts. Com essas configurações já deve ser possível rodar o comando npm run dev e verificar se nosso servidor está funcionando, dá seguinte maneira:
+![index.ts](https://i.imgur.com/yVSH6RV.png)
 
 ## **Resumo dos comandos:**
 Vamos juntar todos os comandos aprendidos até então aqui na ordem de sua execução:
@@ -136,7 +144,7 @@ npm init --yes
 //cria um package.json com valores padrão
 
 npm install -D typescript
-//instala o TypeScript como devDependencie
+//instala o TypeScript nas devDependencies
 
 tsc --init
 // cria um arquivo de configuração do typescript

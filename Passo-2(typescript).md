@@ -31,8 +31,8 @@ Ou seja, vamos supor que tenhamos criado uma pasta index.ts e queremos ver a exe
 ```
 tsc index.ts
 // o comando tsc, transpila o index.ts, criando um novo arquivo chamado index.js
-node index.js
 
+node index.js
 // já o node index.js, executa o código já transpilado para JavaScript
 
 ```

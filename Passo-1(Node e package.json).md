@@ -68,11 +68,11 @@ console.log(`A soma do seu número com 2 é ${2 + num}`)
 Em seguida, é necessário executar o código com o node e atribuir um valor à const num, no terminal da seguinte forma:
 
 ```
-//Esse comando é escrito e executado no terminal, não no arquivo do código
+//Esse comando é escrito e executado no terminal
 node index.js 10
 
-//  Relembrando: o comando node executa o JS, o index.js é o endereço da execução do código e por fim a string 10 é o valor atribuído à
-// const num através do process.argv[2]
+// Relembrando: o comando node executa o JS, o index.js é o endereço da execução do código
+// e a string 10 é o valor atribuído à const num através do process.argv[2]
 ```
 
 
