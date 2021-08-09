@@ -31,6 +31,10 @@ npm install --save-dev typescript
 
 Outro comando que pode ser utilizado é o npm run nomeDoComando, que procura o comando dentro dos "scripts" e o executa caso exista.
 
+**O arquivo package.json fica assim:**
+![package.json](https://i.imgur.com/PG2Ovnd.png)
+
+
 ### **Voltando ao node:** 
 
 O node pode ser utilizado para executar um código em JS no terminal, sem a necessidade da utilização do navegador. O comando utilizado é: 
@@ -88,6 +92,9 @@ npm run start 10
 ```
 
 obtendo o mesmo resultado!
+
+**package.json com novo start:**
+![package.js](https://i.imgur.com/hj5uu05.png)
 
 ## **Resumo dos comandos aprendidos:**
 

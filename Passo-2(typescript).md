@@ -55,10 +55,11 @@ Isso irá gerar um arquivo tsconfig.json que terá a seguinte configuração:
 Neste arquivo, precisamos fazer algumas configurações básicas:
 
 1. Na linha 7 devemos mudar o "target" para "es6"
-2. devemos tirar o comentário das linhas 15, 17,18, 21 e 34
+2. devemos tirar o comentário das linhas 15, 17,18, 21 e 29
 3. Na linha 17, devemos definir o outDir como "./build"
 4. Na linha 18, devemos definir o rootDir como "./src"
-
+**O arquivo fica assim:**
+![tsconfig.json](https://i.imgur.com/5xSGPCM.png)
 **Criando as pastas src e build**
 
 Como demos o endereço das pastas src e build para o rootDir e o outDir respectivamente, devemos criá-las para guardar os arquivos TS e o JS para isso utilizaremos dentro do terminal:
@@ -67,6 +68,27 @@ Como demos o endereço das pastas src e build para o rootDir e o outDir respecti
 mkdir src build
 ```
 Nosso arquivo index.ts deverá ficar dentro da pasta **src** e o index.js dentro da basta build.
+
+## **Incrementando o script start**
+
+Se lembram quando mexemos no package.json e o deixamos assim:
+
+```
+"start": "node index.js"
+```
+
+Então, agora que conhecemos o tsc, podemos incrementá-lo no script de start para que a transpilação ocorra sempre que dermos o comando npm run start, da seguinte forma:
+
+```
+"start": "tsc && node index.js"
+
+```
+**script start no arquivo:**
+![script](https://i.imgur.com/Rdzotlz.png)
+
+**Organização das pastas e arquivos**
+Devemos ter até então algo parecido com isso: 
+![pastas](https://i.imgur.com/hQ5qYhF.png)
 
 ## **Resumo dos comandos:**
 

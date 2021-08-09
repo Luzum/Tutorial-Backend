@@ -139,4 +139,4 @@ npm install @types/cors --save-dev
 npm i express cors
 npm i -D @types/node  @types/express @types/cors typescript
 ```
-Para transpilar o arquivo.ts no terminal, digite :
+
