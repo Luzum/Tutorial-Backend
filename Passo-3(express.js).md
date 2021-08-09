@@ -28,6 +28,22 @@ npm i @types/node @types/express @types/cors -D
 
 Você pode instalar mais de um pacote de uma só vez, é só separá-los por espaço. O -D é uma abreviação para --save-dev (que cria dev dependencies), assim como o i é uma abreviação para install.  
 
+**ts-node-dev:**
+Vamos facilitar nossa vida um pouco mais? Agora que vamos criar um servidor, sempre que fizermos qualquer alteração no código, teremos que transpilar e então rodar o código novamente para vermos as atualizações. Mesmo já tendo configurado o script "start" para fazer isso, pode ser um pouco trabalhoso recorrer sempre ao npm run start. Para nos ajudar podemos instalar como dependência de desenvolvimento o ts-node-dev, da seguinte forma:
+```
+npm i -D ts-node-dev
+```
+Com isso, podemos executar diretamente um arquivo typescript, não precisaremos sempre transpilar as nossas alteraçõe. No package.json podemos criar um novo script:
+
+```
+"dev-start": "ts-node-dev src/index.ts"
+// ou ainda, de maneira abreviada:
+"dev": "tsnd src/index.ts
+```
+Esse script sempre recarregará sozinho!
+**Nossos scripts ficarão assim:**
+![scripts](https://i.imgur.com/Egvqdt1.png)
+
 ## **Iniciando o servidor:**
 
 Para iniciar o servidor necessitamos importar e invocar a função que a biblioteca express exporta por padrão (o famoso export default). Ah! Por organização faremos isso no arquivo app.ts 
@@ -129,6 +145,9 @@ npm install express
 npm install cors
 // instala o express e o cors
 
+npm install ts-node-dev --save-dev
+//instal o ts-node-dev
+
 npm install @types/node --save-dev
 npm install  @types/express --save-dev
 npm install @types/cors --save-dev
@@ -137,6 +156,6 @@ npm install @types/cors --save-dev
 //Como digitar os comandos em menos linhas:
 
 npm i express cors
-npm i -D @types/node  @types/express @types/cors typescript
+npm i -D @types/node  @types/express @types/cors typescript ts-node-dev
 ```
 
