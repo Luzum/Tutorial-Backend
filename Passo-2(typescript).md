@@ -14,13 +14,13 @@ npm i -g typescript
 ```
 ### **Transpilação**
 
-**O que é a transpilação?** No universo da programação, temos linguagens de alto nível (**HLL** - High Level Language) e linguagens de baixo nível (**LL** - Low Level Language). Quando convertemos uma linguagem de alto nível em uma de baixo, o fazemos pelo processo de **compilação**. Já quando convertemos uma linguaguem de alto nível em outra de alto nível o nome do processo é **transpilação**. Ou seja, o processo de transpilação de maneira simplificada é a conversão de uma HLL em outra HLL.
+**O que é a transpilação?** No universo da programação, temos linguagens de alto nível (**HLL** - High Level Language) e linguagens de baixo nível (**LL** - Low Level Language). Quando convertemos uma linguagem de alto nível em uma de baixo, o fazemos pelo processo de **compilação**. Já quando convertemos uma linguagem de alto nível em outra de alto nível o nome do processo é **transpilação**. Ou seja, o processo de transpilação de maneira simplificada é a conversão de uma HLL em outra HLL.
 
 **Mas por que isso é importante?** 
 
 Em alguns casos é necesário que uma linguagem passe pelo processo de transpilação antes de poder ser compilada para sua máquina entender o código, e esse é o caso do TypeScript. Ele necessita ser transpilado para JS antes de ser compilado. 
 
-No primeiro passo, já falamos um pouco sobre o node e como com ele conseguimos visualizar a execução do código JS em nosso terminal, sem a necessidade do navegador. Porém o node não consegue ler TS (só em alguns casos muito específicos onde você usa apenas um console.log básico), então precisamos antes, transpilar o código. **Como fazemos isso?** Simples, presicmaos apenas digitar o seguinte comando:
+No primeiro passo, já falamos um pouco sobre o node e como com ele conseguimos visualizar a execução do código JS em nosso terminal, sem a necessidade do navegador. Porém o node não consegue ler TS (só em alguns casos muito específicos onde você usa apenas um console.log básico), então precisamos antes, transpilar o código. **Como fazemos isso?** Simples, precisamos apenas digitar o seguinte comando:
 
 ```
 tsc nomeDoArquivo.ts
