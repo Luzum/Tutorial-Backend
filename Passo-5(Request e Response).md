@@ -11,6 +11,12 @@ As principais propriedades do req, são as diferentes formas que o front pode en
 * req.query -  query significa consulta em português, são os parâmetros de consulta, ou seja, acessa as chaves passadas por query parameters
 * req.params -  parameters significa parâmetros em português, mas nesse caso são os parâmetros de caminho, acessando valores direto na URL
 
+**Response:**
+
+* res.status(x) - Envia uma resposta de status **x**
+* res.send({y}) - Envia uma resposta com o objeto **y**
+* res.end() - encerra a requisição, sem corpo na resposta
+
 ### Vamos a prática:
 
 **Ex 1**
