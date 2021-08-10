@@ -49,9 +49,9 @@ Note que aqui criamos uma const result do tipo pessoa **OU** undefined. Caso o i
 
 ![index](https://i.imgur.com/QvHaoDJ.png)
 ![postmanCerto](https://i.imgur.com/9JYHRch.png)
-Olhe o statusCode sublinhado!
+**Olhe o statusCode sublinhado!**
 ![postmanErro](https://i.imgur.com/oevEgHt.png)
-Olhe o statusCode e a mensagem!
+**Olhe o statusCode e a mensagem!**
 
 Brinque um pouco aqui com a requisição e o código. Experimente tirar o if/else e use apenas o res.send(result). O que acontece quando você manda um id não existente? E com um id existente tudo funciona? Com o if/else, mude a mensagem e veja o que acontece quando você busca um id não existente. As possibilidades são muitas, vá com calma que dá pra aprender muito!
 
@@ -139,15 +139,16 @@ Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um o
 
 **Quando usamos um index válido:**
 ![postman](https://i.imgur.com/7udSnD1.png)
-Olhe os sublinhados de vermelho!
+**Olhe os sublinhados de vermelho!**
 
 **Quando usamos um index inválido:**
 ![postman](https://i.imgur.com/yORehdE.png)
-Note nosso novo erro ali embaixo!
+**Note nosso novo erro ali embaixo!**
 
 **Como fica nossa lista:**
 ![postman](https://i.imgur.com/XxqF4oN.png)
-Note que beltrano foi deletado!
+**Note que beltrano foi deletado!**
 
 **Aprenda mais sobre os códigos de status**
+
 Lê aqui: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status 
