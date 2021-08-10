@@ -19,22 +19,28 @@ As principais propriedades do req, são as diferentes formas que o front pode en
 
 ### Vamos a prática:
 
-**Ex 1**
+**Ex 1:**
+
 Como ainda não vimos nada sobre banco de dados, vamos criar no vscode uma lista de pessoas para praticar o que vimos até então. Dentro da pasta src crie dois arquivos: data.ts e types.ts. Na pasta types.ts crie um type para representar uma **pessoa com id, nome e sobrenome**. Na pasta data.ts crie uma lista de pessoas que será do tipo pessoa. Antes de olhar as imagens tente fazer por você mesmo!
 
 **Types.ts e data.ts:**
 
 ![types.ts](https://i.imgur.com/e2p72ZT.png)
+
 ![data.ts](https://i.imgur.com/rYD8ZwH.png)
 
-**Ex 2**
+**Ex 2:**
+
 Vamos agora criar um endpoint para buscar todas as pessoas:
 ![pegarTodasPessoas](https://i.imgur.com/K8LSGkB.png)
+
 ![index](https://i.imgur.com/XIrHg34.png)
+
 ![postman](https://i.imgur.com/Lm9Wku2.png)
 
 
-**Ex 3**
+**Ex 3:**
+
 Endpoint para buscar uma pessoa por id via path params
 ![pessoaPorId](https://i.imgur.com/N0uLC3V.png)
 **IMPORTANTE:**
@@ -70,7 +76,8 @@ app.get('/pessoas/:id', pegarPessoasPorId )
 ```
 Vê que da primeira forma é impossível chegar no endpoint da mensagem? Já da **segunda maneira você consegue acessar ambos os endpoints!**
 
-**Ex 4**
+**Ex 4:**  
+
 Vamos deletar uma pessoa da nossa lista a partir de seu id via path params? O código vai ser muito parecido com o de procurar uma pessoa pelo seu ID (Dica: nessa lista o ID e o Index coincidem, o que você pode fazer com essa informação?), então pense um pouco no que mudaria no código e tente fazê-lo antes de olhar o código abaixo:
 
 ```
