@@ -142,7 +142,7 @@ Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um o
 **Olhe os sublinhados de vermelho!**
 
 **Quando usamos um index inválido:**
-![postman](https://i.imgur.com/yORehdE.png)
+![postman](https://i.imgur.com/V9iFwd5.png)
 **Note nosso novo erro ali embaixo!**
 
 **Como fica nossa lista:**
