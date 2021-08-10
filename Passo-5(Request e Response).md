@@ -87,6 +87,8 @@ export const deletarPessoaPorId = (
 
 }
 ```
+Note que dessa vez transformei o req.params.id em Number, o resultado é o mesmo de transformar o pessoa.id em string!
+
 no index.ts:
 ```
 app.delete('/pessoas/:id', deletarPessoaPorId)
@@ -124,7 +126,8 @@ export const deletarPessoaPorId = (
     }
 
 ```
-Neste último exemplo, utilizamos o try/catch para fazer validações na requisição de forma que a experiência do usuário seja melhor. A lógica do primeiro if é simples: o id fornecido não pode ser negativo e também não pode ser maior ou igual ao index! 
+Neste último exemplo, utilizamos o try/catch para fazer validações na requisição de forma que a experiência do usuário seja melhor. A lógica do primeiro if é simples: o id fornecido não pode ser negativo e também não pode ser maior ou igual ao index!
+Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um objeto de uma lista vai ser bem mais fácil!, não vamos precisar de usar o splice, vamos usar funções do próprio MySql :)
 
 **Quando usamos um index válido:**
 ![postman](https://i.imgur.com/7udSnD1.png)
