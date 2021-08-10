@@ -49,3 +49,91 @@ Olhe o statusCode e a mensagem!
 Brinque um pouco aqui com a requisição e o código. Experimente tirar o if/else e use apenas o res.send(result). O que acontece quando você manda um id não existente? E com um id existente tudo funciona? Com o if/else, mude a mensagem e veja o que acontece quando você busca um id não existente. As possibilidades são muitas, vá com calma que dá pra aprender muito!
 
 **Acho que já deu pra entender a organização das pastas né? A partir de agora vou postar apenas o código e a imagem do postman!**
+
+### **A ordem dos endpoints no index.ts importa!**
+O nosso servidor quando recebe uma requisição, percorre todos os endpoints **na ordem de declaração**, então fique atento a isso! Às vezes você pode achar que tem algum erro no código do seu endpoint quando na verdade, só os colocou em uma ordem onde apenas o primeiro é lido! Por exemplo, se você tiver dois endpoints na seguinte ordem:
+
+```
+app.get('/pessoas/:id', pegarPessoasPorId )
+
+app.get('/pessoas/mensagem', (req:Request, res:Response) =>{
+    res.send("Mensagem")
+})
+```
+Apenas o primeiro será executado no postman! Ao tentar executar o segundo, receberá um erro porque o id "mensagem" não existe. Teste da primeira maneira, e agora teste assim:
+
+```
+app.get('/pessoas/mensagem', (req:Request, res:Response) =>{
+    res.send("Mensagem")
+})
+app.get('/pessoas/:id', pegarPessoasPorId )
+```
+Vê que da primeira forma é impossível chegar no endpoint da mensagem? Já da **segunda maneira você consegue acessar ambos os endpoints!**
+
+**Ex 4**
+Vamos deletar uma pessoa da nossa lista a partir de seu id via path params? O código vai ser muito parecido com o de procurar uma pessoa pelo seu ID (Dica: nessa lista o ID e o Index coincidem, o que você pode fazer com essa informação?), então pense um pouco no que mudaria no código e tente fazê-lo antes de olhar o código abaixo:
+
+```
+export const deletarPessoaPorId = (
+    req: Request,
+    res: Response
+): void => {
+    const deletar: number = pessoas.findIndex(
+        pessoa => pessoa.id === Number(req.params.id)
+    )
+    pessoas.splice(deletar, 1)
+
+    res.status(204)
+
+}
+```
+no index.ts:
+```
+app.delete('/pessoas/:id', deletarPessoaPorId)
+```
+
+Mas podemos melhorar ainda mais esse código, não podemos? Vamos então utilizar um try/catch junto com alguns if e if/else:
+
+```
+export const deletarPessoaPorId = (
+    req: Request,
+    res: Response
+): void => {
+
+    try {
+        const deletar: number = pessoas.findIndex(
+            pessoa => pessoa.id === Number(req.params.id)
+        )
+        
+            if (deletar <= -1 || deletar >= pessoas.length) {
+                res.statusCode = 404
+                throw new Error("Pessoa nao encontrada!")
+        }
+        pessoas.splice(deletar, 1)
+
+        res.status(204).end()
+    
+    } catch (error) {
+        if(res.statusCode === 200){
+            res.status(500).end()
+        } else {
+            res.statusMessage = error.message
+            res.end()
+        }
+        
+    }
+
+```
+Neste último exemplo, utilizamos o try/catch para fazer validações na requisição de forma que a experiência do usuário seja melhor. A lógica do primeiro if é simples: o id fornecido não pode ser negativo e também não pode ser maior ou igual ao index! 
+
+**Quando usamos um index válido:**
+![postman](https://i.imgur.com/7udSnD1.png)
+Olhe os sublinhados de vermelho!
+
+**Quando usamos um index inválido:**
+![postman](https://i.imgur.com/yORehdE.png)
+Note nosso novo erro ali embaixo!
+
+**Como fica nossa lista:**
+![postman](https://i.imgur.com/XxqF4oN.png)
+Note que beltrano foi deletado!
