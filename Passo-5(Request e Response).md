@@ -23,25 +23,26 @@ As principais propriedades do req, são as diferentes formas que o front pode en
 
 Como ainda não vimos nada sobre banco de dados, vamos criar no vscode uma lista de pessoas para praticar o que vimos até então. Dentro da pasta src crie dois arquivos: data.ts e types.ts. Na pasta types.ts crie um type para representar uma **pessoa com id, nome e sobrenome**. Na pasta data.ts crie uma lista de pessoas que será do tipo pessoa. Antes de olhar as imagens tente fazer por você mesmo!
 
-**Types.ts e data.ts:**
+**types.ts**
 
 ![types.ts](https://i.imgur.com/e2p72ZT.png)
 
+**data.ts**
 ![data.ts](https://i.imgur.com/rYD8ZwH.png)
 
 **Ex 2:**
 
 Vamos agora criar um endpoint para buscar todas as pessoas:
+
 ![pegarTodasPessoas](https://i.imgur.com/K8LSGkB.png)
-
 ![index](https://i.imgur.com/XIrHg34.png)
-
 ![postman](https://i.imgur.com/Lm9Wku2.png)
 
 
 **Ex 3:**
 
 Endpoint para buscar uma pessoa por id via path params
+
 ![pessoaPorId](https://i.imgur.com/N0uLC3V.png)
 **IMPORTANTE:**
 Note que aqui criamos uma const result do tipo pessoa **OU** undefined. Caso o id passado não exista na lista, o resultado será undefined. Note também que a criação dessa variável permite com que possamos fazer uma verificação sobre o resultado da nossa requisição possibilitando uma melhor experiência ao usuário. O res.statusCode =200 nos mostra que a requisição deu certo e receberemos o resultado que esperamos. O res.statusCode404 nos indica que não encontramos a pessoa e receberemos a mensagem de que não encontramos, vamos ver isso no postman!
