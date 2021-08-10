@@ -137,3 +137,6 @@ Note nosso novo erro ali embaixo!
 **Como fica nossa lista:**
 ![postman](https://i.imgur.com/XxqF4oN.png)
 Note que beltrano foi deletado!
+
+**Aprenda mais sobre os códigos de status**
+Lê aqui: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status 
