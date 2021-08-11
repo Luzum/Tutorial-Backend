@@ -72,4 +72,59 @@ Note primeiro agrupamos todos os endpoints que se relacionam com a entidade "usu
 
 **Vamos fazer alguns exercícios?**
 
-Vamos começar fazendo novamente um endpoint para pegar todos os usuários como no [Passo-5](../Passo-1/Passo-5(Request-Response).md), mas dessa vez usando tudo que aprendemos até então?
+Vamos dessa vez fazer um endpoint para pegar uma pessoa por nome a partir de **path params**? Até então só usamos query params em nosso tutorial, vamos ver como funciona o path params! (Vamos usar tudo que já aprendemos e um pouco mais, então depois de tentar fazer por si, leia o código atentamente!)
+
+```
+import { Request, Response} from "express"
+import {pessoas} from "../data"
+import { pessoa } from "../types"
+
+export const pegarPessoaPorNome = (
+    req:Request, res:Response
+): void => {
+    let errorCode:number= 400
+    try {
+        const nome:string = req.query.nome as string
+        const usuario: pessoa | undefined = pessoas.find(
+            pessoa => pessoa.nome === nome
+        )
+        if(!usuario) {
+           errorCode= 404
+           throw new Error ('Usuario nao encontrado')
+        }
+        res.status(200).send(usuario)
+    } catch (error) {
+        res.status(errorCode).send({message: error.message})
+    }
+}
+```
+A variável errorCode serve para podermos usar o código de erro à depender da situação! Note que na **const nome** temos no final um *as string*, o que é isso? Se não fizermos isso o typescript vai reclamar que a const nome pode ser de diferentes tipos e não apenas string. Aqui basicamente fazemos ele calar a boca e dizemos pra ele: "VAI SER STRING SIM, DESGRAÇA", mas veja que isso não é uma garantia de que será uma string! Em breve veremos um melhor jeito de fazer uma verificação para isso. Na condição if embaixo da const usuario, fazemos uma verificação, caso procuremos um usuário não existente, receberemos um erro 404 com a mensagem de usuario nao encontrado. Caso dê tudo certo recebemos o código 200 e o usuário!
+
+Veja aqui a organização em nosso index.ts: 
+
+![index.ts](https://i.imgur.com/KAEA4vo.png)
+Olhe bem, tive que criar uma nova entidade, porque se usasse '/pessoas' não conseguiria acessar os path params. Mas e se você colocasse ela na linha 10, antes do endpoint de pegar todas as pessoas? Aí não conseguiríamos acessar o array com todas as pessoas a partir da entidade '/pessoas'!
+
+Olha o postman com path params:
+![postmanCerto](https://i.imgur.com/j2yxP5C.png)
+Tá vendo que para acessar o path params precisamos do ? após o nome de nossa entidade,  a key que definimos em nosso código que nesse caso foi "nome", depois dela um sinal de **=** e o valor da nossa pesquisa. Também podemos fazer a mesma coisa digitando a key e o value no postman, como sublinhado na imagem
+
+Quando pesquisamos um nome não existente acontece isso:
+![postmanErro](https://i.imgur.com/qwx3cQi.png)
+
+Olha lá nosso errorCode e nossa mensagem!
+
+E vamos seguindo assim! Aos poucos melhorando nosso código e vendo pequenas mudanças que podemos fazer para torná-lo melhor! Ele está longe de ser perfeito ainda mas olhe a diferença entre ele e nosso primeiro endpoint de busca: 
+```
+import { Request, Response} from "express"
+import {pessoas} from "../data"
+
+export const pegarTodasPessoas = (
+    req: Request, 
+    res: Response
+    ):void =>{
+        res.send(pessoas)
+}
+
+```
+Vamos a próxima seção? Clique [aqui](./Passo-3.md).
