@@ -59,5 +59,5 @@ npm i express cors
 npm i -D @types/node  @types/express @types/cors typescript ts-node-dev
 ```
 
-Clique [aqui](./passo-2) para a próxima seção!
+Clique [aqui](./passo-2.md) para a próxima seção!
 
