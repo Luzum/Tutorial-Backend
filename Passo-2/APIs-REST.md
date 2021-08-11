@@ -69,3 +69,7 @@ app.get('/turmas', (req:Request, res:Response) => {
 
 ```
 Note primeiro agrupamos todos os endpoints que se relacionam com a entidade "usuarios" a partir de seus métodos na ordem GET, POST, PUT, DELETE e depois começamos a fazer o mesmo com as outras entidades. No exemplo acima se continuássemos com a entidade "/turmas", a boa prática seria continuar com os métodos get e em seguida os próximos.
+
+**Vamos fazer alguns exercícios?**
+
+Vamos começar fazendo novamente um endpoint para pegar todos os usuários como no [Passo-5](../Passo-1/Passo-5(Request-Response).md), mas dessa vez usando tudo que aprendemos até então?
