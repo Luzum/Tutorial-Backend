@@ -102,7 +102,7 @@ A variável errorCode serve para podermos usar o código de erro à depender da 
 
 Veja aqui a organização em nosso index.ts: 
 
-![index.ts](https://i.imgur.com/KAEA4vo.png)
+![index.ts](https://i.imgur.com/V94KJb8.png)
 Olhe bem, tive que criar uma nova entidade, porque se usasse '/pessoas' não conseguiria acessar os path params. Mas e se você colocasse ela na linha 10, antes do endpoint de pegar todas as pessoas? Aí não conseguiríamos acessar o array com todas as pessoas a partir da entidade '/pessoas'!
 
 Olha o postman com path params:
