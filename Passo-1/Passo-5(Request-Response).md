@@ -134,7 +134,7 @@ export const deletarPessoaPorId = (
     }
 
 ```
-Neste último exemplo, utilizamos o try/catch para fazer validações na requisição de forma que a experiência do usuário seja melhor. A lógica do primeiro if é simples: o id fornecido não pode ser negativo e também não pode ser maior ou igual ao index!
+Neste último exemplo, utilizamos o  [try/catch](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/try...catch) (Sempre leiam tudo que tiver no MDN, rs) para fazer validações na requisição de forma que a experiência do usuário seja melhor. A lógica do primeiro if é simples: o id fornecido não pode ser negativo e também não pode ser maior ou igual ao index!
 Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um objeto de uma lista vai ser bem mais fácil!, não vamos precisar de usar o splice, vamos usar funções do próprio MySql :)
 
 **Quando usamos um index válido:**
@@ -151,4 +151,4 @@ Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um o
 
 **Aprenda mais sobre os códigos de status**
 
-Lê aqui: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status 
+Lê [aqui](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
