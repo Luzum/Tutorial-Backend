@@ -16,17 +16,20 @@ Primeiro volte no app.ts e certifique-se que está exportando a const app, desta
 ```
 import express, { Express } from 'express'
 import cors from 'cors'
+import { AddressInfo } from "net";
+//Esse ultimo import é novidade! faz parte da configuração de rede do node!
 
 const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
 
-const portNumber = 3003
 
-const server = app.listen(portNumber, () => {
+
+const server = app.listen(3003, () => {
    if(server) {
-       console.log(`Servidor rodando em http://localhost:${portNumber}`)
+       const address = server.address() as AddressInfo;
+       console.log(`Servidor rodando em http://localhost:${address.port}`)
    } else {
        console.error('Servidor não iniciado')
    }
@@ -35,7 +38,9 @@ const server = app.listen(portNumber, () => {
 export default app
 
 ```
-**Guarde bem esse código da pasta app!Ele será basicamente o mesmo em todas aplicações do backend que você fizer!**
+Perceberam a pequena mudança da última vez para cá? Não? Foi a seguinte: ao invés de utilizar uma const portnumber, importei o [AddressInfo](https://nodejs.org/api/net.html#net_server_address) que é um método de configuração de rede do node.js que nos mostra a porta em que nosso servidor está rodando!
+
+**Guarde bem esse código da pasta app! Ele será basicamente o mesmo em todas aplicações do backend que você fizer!**
 No index.ts importe o app e comece a criação do endpoint:
 
 ```
