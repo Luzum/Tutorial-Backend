@@ -15,7 +15,7 @@ app.get('/usuarios', (req, res) => {
 //insira o restante da função aqui
 });
 ```
-Temos o **get** como método, o path ou entidade é **usuarios** e o handler poderia ser uma função para se pegar todos os usuários, como já aprendemos anteriormente no [Passo-5](Passo-5(Request-Reponse).md)
+Temos o **get** como método, o path ou entidade é **usuarios** e o handler poderia ser uma função para se pegar todos os usuários, como já aprendemos anteriormente no [Passo-5](Passo-1/Passo-5(Request-Reponse).md)
 
 **Boas práticas**
 Uma boa prática
