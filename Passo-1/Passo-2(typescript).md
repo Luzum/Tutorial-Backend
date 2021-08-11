@@ -103,3 +103,4 @@ tsc --init
 // cria um arquivo de configuração do typescript
 
 ```
+Vamos ao [Passo-3](./Passo-3(express.js).md)?
