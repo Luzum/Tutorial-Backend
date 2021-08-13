@@ -130,7 +130,52 @@ SELECT nome, apelido FROM pessoas WHERE ID = "0003";
 ```
 
 **Operadores condicionais**
-Existem vários operadores condicionais no MySQL veja eles [aqui](https://www.w3schools.com/mysql/mysql_operators.asp), [aqui](https://www.w3schools.com/mysql/mysql_and_or.asp) e [aqui](https://www.w3schools.com/mysql/mysql_in.asp)
+Existem vários operadores condicionais no MySQL veja eles [aqui](https://www.w3schools.com/mysql/mysql_operators.asp), [aqui](https://www.w3schools.com/mysql/mysql_and_or.asp) e [aqui](https://www.w3schools.com/mysql/mysql_in.asp).
 
 
+**Atualizar tabelas**
+Podemos atualizar as tabelas que já criamos, podendo mudar suas colunas  e também seus campos.
 
+Para alterar a estrutura de uma tabela utilizamos o comando [ALTER TABLE](https://www.w3schools.com/mysql/mysql_alter.asp), com ele podemos adicionar ou remover uma coluna, alterar o valor padrão de algum campo já existente e até alterar a obrigatoriedade de um campo.
+Exemplo
+```
+ALTER TABLE pessoas 
+ADD genero VARCHAR(255) NOT NULL;
+```
+Aqui adicionamos a coluna email em nossa tabela! Quando adicionamos uma nova coluna sem um valor padrão, ela fica com o valor null até algum valor ser adicionado à ela. Para remover uma coluna utilizamos o seguinte comando:
+```
+ALTER TABLE pessoas 
+DROP COLUMN genero;
+```
+Para alterar uma coluna já existente:
+
+```
+ALTER TABLE pessoas 
+CHANGE id id INT
+```
+Aqui mudamos a coluna id para aceitar apenas números inteiros. Note que id é escrito duas vezes, a primeira vez é o nome atual da coluna a segunda é o novo nome da coluna. Então para manter o mesmo nome digitamos ele duas vezes, se quiséssemos mudar seria assim:
+
+```
+ALTER TABLE pessoas 
+CHANGE id novo_nome INT
+```
+
+Para alterar uma ou mais linhas usamos o seguinte comando:
+
+```
+UPDATE pessoas
+SET genero = "não-binário"
+WHERE id = "0001"
+```
+Se não usarmos o WHERE, **TODAS** as linhas da coluna serão alteradas!
+
+**Restrições**
+
+DEFAULT: define um valor padrão para a coluna caso esta não seja preenchida manualmente por ex:
+```
+ALTER TABLE pessoas 
+CHANGE genero genero VARCHAR(255) DEFAULT "não-binário"
+```
+Assim, se um gênero não for definido ele virá com o valor padrão de não-binário.
+
+AUTO_INCREMENT: se não passarmos um valor para uma coluna numérica, o auto_increment colocará o número inteiro seguinte ao último valor definido.  Outras restrições podem ser vistas [aqui](https://www.w3schools.com/mysql/mysql_constraints.asp).
