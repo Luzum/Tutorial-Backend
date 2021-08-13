@@ -179,3 +179,9 @@ CHANGE genero genero VARCHAR(255) DEFAULT "não-binário"
 Assim, se um gênero não for definido ele virá com o valor padrão de não-binário.
 
 AUTO_INCREMENT: se não passarmos um valor para uma coluna numérica, o auto_increment colocará o número inteiro seguinte ao último valor definido.  Outras restrições podem ser vistas [aqui](https://www.w3schools.com/mysql/mysql_constraints.asp).
+
+O MySQL possui funções nativas, mas sinceramente ao invés de botar elas nesse guia, vai ser mais fácil você olhar elas [aqui](https://www.w3schools.com/mysql/mysql_ref_functions.asp) e brincar um pouco com elas em seu banco para ver o que acontece. As funções irão alterar apenas a **visualização** dos dados, mas não irão alterá-los na tabela.
+
+Ah! Vale a pena olhar também as cláusulas [GROUP_BY](https://www.w3schools.com/mysql/mysql_groupby.asp), [ORDER_BY](https://www.w3schools.com/mysql/mysql_orderby.asp) e [LIMIT](https://www.w3schools.com/mysql/mysql_limit.asp).
+
+Vamos então conhecer o [knex](./Passo-4.md)?
