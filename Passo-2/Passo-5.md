@@ -37,7 +37,7 @@ mkdir endpoints
 Pronto, temos todas as configurações básicas praticamente prontas! As configurações do package.json e do tsconfig.json e de todos os outros arquivos ficam por conta de vocês :)
 ## **Knex: Query Builder**
 
-O knex tem uma funcionalidade chamada **Query Builder**. Com ela também podemos fazer a integração de nossa API com um banco de dados, mas não precisamos nos prender à sintaxe pura do MySQL, pois poderemos utilizar os métodos do Query Builder (eles são até bem parecidos com a sintaxe pura do MySQL). Vale a pena gastar um tempo olhando a [documentação] (https://knexjs.org/#Builder) porque são vários!
+O knex tem uma funcionalidade chamada **Query Builder**. Com ela também podemos fazer a integração de nossa API com um banco de dados, mas não precisamos nos prender à sintaxe pura do MySQL, pois poderemos utilizar os métodos do Query Builder (eles são até bem parecidos com a sintaxe pura do MySQL). Vale a pena gastar um tempo olhando a [documentação](https://knexjs.org/#Builder) porque são vários!
 
 Vamos começar de um jeito simples: da mesma maneira que fizemos nosso endpoint de pegar todas as pessoas com o RAW, vamos fazê-lo agora com o query builder: 
 
