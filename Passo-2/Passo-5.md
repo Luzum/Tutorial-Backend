@@ -126,7 +126,7 @@ const atualizaApelido = async (req: Request, res: Response): Promise<any> => {
 
 export default atualizaApelido
 ```
-Vamos entender o código? Primeiro fazemos uma desestruturação para deixar nosso código mais limpo. Depois no primeiro if checamos se os parâmetros apelido e id foram preenchidos corretamente no corpo da nossa requisição, caso contrário o código para ali e manda o usuário consertar seus erros. Depois começa o Query Builder: primeiro nos conectamos à tabela "pessoas" e depois usamos o métodos que precisamos para atualizar uma pessoa já existente: o .update que vai atualizar o apelido e o .where que garante com que apenas o apelido da pessoa com o id especificado seja atualizado!
+Vamos entender o código? Primeiro fazemos uma desestruturação para deixar nosso código mais limpo. Depois no primeiro if checamos se os parâmetros apelido e id foram preenchidos corretamente no corpo da nossa requisição, caso contrário o código para ali e manda o usuário consertar seus erros. Depois começa o Query Builder: primeiro nos conectamos à tabela "pessoas" e depois usamos o métodos que precisamos para atualizar uma pessoa já existente: o .update que vai atualizar o apelido e o .where que garante com que apenas o apelido da pessoa com o id especificado seja atualizado! Não se esqueça do **.where**, se você não especificar onde quer atualizar algo, **TODAS** as linhas da tabela serão atualizadas naquela coluna!
 
 Olha como fica nosso request.rest:
 ![request.rest](https://i.imgur.com/U4JtAXN.png)
@@ -201,3 +201,46 @@ nosso index e request.rest:
 
 Ciclano com apelido atualizado, repare no id passado por path params:
 ![apelidoAtualizado](https://i.imgur.com/O3MlAgn.png)
+
+Agora é a sua vez: crie um endpoint para **deletar** uma pessoa da lista  a partir de seu id, utilizando o knex RAW e depois o Query Builder. Use os códigos já existentes como base sem medo! Leia eles e veja o que é necessário mudar para deletar uma pessoa. NÃO SE ESQUEÇA DA CLAUSULA **WHERE** SE NÃO VOCÊ DELETARÁ TODOS OS DADOS DE SUA TABELA!
+
+
+RAW:
+```
+const deletaPessoa = async (req: Request, res: Response): Promise<any> => {
+    try {
+        const { id } = req.params
+        await connection.raw(`
+            DELETE FROM pessoas 
+            WHERE id = ${id}
+        `)
+        res.status(200).send(`Pessoa deletada!`)
+    } catch (error) {
+        if (res.status(200)) {
+            res.status(500).send({ error: "Erro interno do servidor!" })
+        } else {
+            res.send({ error: error.sqlMessage || error.message })
+        }
+    }
+}
+```
+
+Query Builder: 
+
+```
+const deletaPessoa = async (req: Request, res:Response): Promise<any> =>{
+    try { 
+     const {id} = req.params
+    await connection('pessoas')
+    .delete()
+    .where({id})
+     res.status(200).send("Pessoa deletada!")
+    } catch (error) {
+        if (res.status(200)){
+            res.status(500).send({error: "Erro interno do servidor!"})
+        } else {
+            res.send({error: error.sqlMessage || error.message})
+        }
+    }
+}
+```
