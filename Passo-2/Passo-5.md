@@ -98,12 +98,14 @@ A gente fez um endpoint para criar uma nova pessoa com o knex RAW não fizemos? 
 export const postarPessoa = async(req: Request, res: Response):Promise<any> => {
     try {
         const {nome, email, apelido} = req.body;
+        
         const novaPessoa = {
             id: Date.now().toString(),
             nome,
             email,
             apelido
         }
+       
         if (!nome || !email || !apelido) {
             return res.status(422).send({ error: "Preencha todos os campos corretamente!"})
         }
