@@ -92,6 +92,36 @@ As principais diferenças nesse caso são:
 
 Como é uma requisição relativamente simples, não fez tanta diferença assim usar o Query Builder e o RAW, mas a tendência é que em buscas mais complicadas o Query Builder facilite um pouco nosso trabalho, já que podemos encadear os métodos, da mesma maneira que podemos encadear os métodos do express! Mas lembre-se, em termos práticos de resultados não há muitas diferenças entre um e outro. Treine criar endpoints das duas maneiras! O RAW é ótimo para manter seus conhecimentos da sintaxe de MySQL em dia! O Query Builder por sua vez é ótimo pra deixar sua vida mais simples, mais tranquila.
 
+**Refatoração do endpoint de postar pessoa**
+A gente fez um endpoint para criar uma nova pessoa com o knex RAW não fizemos? Vamos fazer agora com o Query Builder:
+```
+export const postarPessoa = async(req: Request, res: Response):Promise<any> => {
+    try {
+        const {nome, email, apelido} = req.body;
+        const novaPessoa = {
+            id: Date.now().toString(),
+            nome,
+            email,
+            apelido
+        }
+        if (!nome || !email || !apelido) {
+            return res.status(422).send({ error: "Preencha todos os campos corretamente!"})
+        }
+
+        await connection("pessoas").insert(novaPessoa)
+
+        res.status(201).send("Pessoa criada!").end()
+    } catch (error) {
+        if(res.status(200)){
+            return res.status(500).send({error: "Erro interno do servidor"})
+        } else {
+            res.send({error: error.sqlMessage || error. message})
+        }
+    }
+}
+```
+Veja como fica mais fácil de ler o código! Olhe também como ficou simples inserir uma pessoa na tabela, só precisamos usar o .insert e colocar nossa const lá!
+
 Vamos treinar mais um pouco o Query Builder. Em nossa tabela, nem fulano nem ciclano tem apelidos, vamos fazer um endpoint que atualize essas informações e dê apelidos para eles?
 
 ```
