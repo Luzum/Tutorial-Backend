@@ -163,3 +163,41 @@ Com ela fica assim:
 // assim, ao invés de colocarmos apelido:apelido ou id:id
 // podemos deixar só apelido e id.
 ```
+E se quiséssemos passar o id via path params? Pense um pouco e tente fazer por si! 
+
+Possível código por path params:
+
+```
+import {Response, Request} from "express"
+import connection from "../connection"
+
+const atualizaApelido = async (req: Request, res: Response): Promise<any> =>{
+    try {
+    const {apelido} = req.body
+    const {id} = req.params
+    if(!apelido){
+        res.status(422).send("Preencha os campos corretamente!")
+    }
+    await connection("pessoas")
+    .update({
+        apelido
+    }).where ({
+        id
+    })
+       res.status(200).send("Apelido atualizado!")
+    } catch(error){
+        if (res.status(200)){
+            res.status(500).send("erro interno do servidor")
+        } else {
+            res.send({ error: error.sqlMessage || error.message})
+        }
+    }
+}
+
+export default atualizaApelido
+```
+nosso index e request.rest:
+![index](https://i.imgur.com/HR9hGoc.png)
+
+Ciclano com apelido atualizado, repare no id passado por path params:
+![apelidoAtualizado](https://i.imgur.com/O3MlAgn.png)

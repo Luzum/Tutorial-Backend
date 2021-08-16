@@ -221,7 +221,7 @@ export const postarPessoa = (req: Request, res: Response): void => {
     }
 }
 ```
-Veja que fizemos uma desestruturação para que o código ficasse mais enxuto na const {id, nome, sobrenome} = req.body (poderia ser const id = req.body.id e assim por diante). Depois fazemos uma breve verificação para ver se tudo no body foi preenchido para podermos criar nosso novo usuário. Esse código está longe de ser perfeito, pois permite, por exemplo, que possamos criar 2 usuários com o mesmo id em nossa lista, mas vamos aos poucos, o importante agora é aprender como utilizar o **POST**.
+Veja que fizemos uma desestruturação para que o código ficasse mais enxuto na const {id, nome, sobrenome} = req.body sem ela, nosso código ficaria id: req.body.id, nome: req.body.nome e assim por diante, olha como fica mais simples assim! Depois fazemos uma breve verificação para ver se tudo no body foi preenchido para podermos criar nosso novo usuário. Esse código está longe de ser perfeito, pois permite, por exemplo, que possamos criar 2 usuários com o mesmo id em nossa lista, mas vamos aos poucos, o importante agora é aprender como utilizar o **POST**.
 
 
 Olhe nosso postman:
