@@ -37,7 +37,7 @@ mkdir endpoints
 Pronto, temos todas as configurações básicas praticamente prontas! As configurações do package.json e do tsconfig.json e de todos os outros arquivos ficam por conta de vocês :)
 ## **Knex: Query Builder**
 
-O knex tem uma funcionalidade chamada **Query Builder**. Com ela também podemos fazer a integração de nossa API com um banco de dados, mas não precisamos nos prender à sintaxe pura do MySQL, pois poderemos utilizar os métodos do Query Builder (eles são até bem parecidos com a sintaxe pura do MySQL). Vale a pena gastar um tempo olhando a [documentação] (https://knexjs.org/#Builder) porque são vários!
+O knex tem uma funcionalidade chamada **Query Builder**. Com ela também podemos fazer a integração de nossa API com um banco de dados, mas não precisamos nos prender à sintaxe pura do MySQL, pois poderemos utilizar os métodos do Query Builder (eles são até bem parecidos com a sintaxe pura do MySQL). Vale a pena gastar um tempo olhando a [documentação](https://knexjs.org/#Builder) porque são vários!
 
 Vamos começar de um jeito simples: da mesma maneira que fizemos nosso endpoint de pegar todas as pessoas com o RAW, vamos fazê-lo agora com o query builder: 
 
@@ -88,6 +88,78 @@ const pegarTodasAsPessoas = async (req: Request, res: Response):Promise<any> => 
 As principais diferenças nesse caso são:
 * Não precisamos usar await connection.raw, apenas await connection("nome_da_tabela")
 * Podemos usar métodos como o .select('*') ao invés de ter que digitar SELECT * FROM nome_da_tabela.
+* Em nosso resultado não precisamos botar o index[0], já vem a informação que queremos.
 
 Como é uma requisição relativamente simples, não fez tanta diferença assim usar o Query Builder e o RAW, mas a tendência é que em buscas mais complicadas o Query Builder facilite um pouco nosso trabalho, já que podemos encadear os métodos, da mesma maneira que podemos encadear os métodos do express! Mas lembre-se, em termos práticos de resultados não há muitas diferenças entre um e outro. Treine criar endpoints das duas maneiras! O RAW é ótimo para manter seus conhecimentos da sintaxe de MySQL em dia! O Query Builder por sua vez é ótimo pra deixar sua vida mais simples, mais tranquila.
 
+Vamos treinar mais um pouco o Query Builder. Em nossa tabela, nem fulano nem ciclano tem apelidos, vamos fazer um endpoint que atualize essas informações e dê apelidos para eles?
+
+```
+import { Response, Request } from 'express'
+import connection from '../connection'
+
+const atualizaApelido = async (req: Request, res: Response): Promise<any> => {
+    try {
+        const {apelido, id} = req.body
+        
+        if(!apelido || !id){
+            return res.status(422).send("Preencha o campo corretamente!")
+        }
+
+        await connection("pessoas")
+        .update({
+            apelido
+        })
+        .where({
+            id
+        })
+        
+        res.status(200).send("Apelido atualizado!")
+    } catch (error) {
+        if(res.status(200)){
+          return  res.status(500).send("Erro interno do servidor")
+        } else {
+            res.send({ error: error.sqlMessage || error.message})
+        }
+    }
+}
+
+export default atualizaApelido
+```
+Vamos entender o código? Primeiro fazemos uma desestruturação para deixar nosso código mais limpo. Depois no primeiro if checamos se os parâmetros apelido e id foram preenchidos corretamente no corpo da nossa requisição, caso contrário o código para ali e manda o usuário consertar seus erros. Depois começa o Query Builder: primeiro nos conectamos à tabela "pessoas" e depois usamos o métodos que precisamos para atualizar uma pessoa já existente: o .update que vai atualizar o apelido e o .where que garante com que apenas o apelido da pessoa com o id especificado seja atualizado!
+
+Olha como fica nosso request.rest:
+![request.rest](https://i.imgur.com/U4JtAXN.png)
+
+Olha o Fulano com apelido: 
+![Apelido](https://i.imgur.com/RZzGi3H.png)
+
+Quer ver se nosso código realmente está aprova de erros? Tente mudar no body do patch "id" para "ID" ou qualquer outro valor, faça o mesmo com o "apelido". Você consegue atualizar algum valor fazendo isso ou recebe uma mensagem de erro? Essa mensagem vem de que parte do nosso código?
+
+**Sobre a desestruturação:**
+
+Sem ela nosso código seria assim no .update e .where:
+```
+ .update({
+            apelido: req.body.apelido
+        })
+        .where({
+            id: req.body.id
+        })
+
+Com ela fica assim:
+ const {id, apelido} = req.body
+ 
+ .update({
+            apelido
+        })
+        .where({
+            id
+        })
+
+// veja que fica bem mais simples, mas faça como achar melhor!
+// Vamos lembrar que dentro do objeto, se a variável que armazena o valor
+// tem o mesmo nome da propriedade, podemos encurtar o código,
+// assim, ao invés de colocarmos apelido:apelido ou id:id
+// podemos deixar só apelido e id.
+```

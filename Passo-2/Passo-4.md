@@ -171,5 +171,22 @@ Temos sempre que criar no send request correspondente ao que queremos fazer!
 Conferindo se Beltrano está na lista:
 ![lista](https://i.imgur.com/VIJisIt.png)
 
+Tente brincar um pouco com o corpo da requisição no arquivo request.rest. Se você muda o parâmetro "nome" para "name" o código continua funcionando ou vem uma mensagem de erro? A nova pessoa é postada ou não? Tente mudar a verificação para depois do connection.raw, assim:
+```
+  await connection.raw(`
+            INSERT INTO pessoas
+                (id, nome, email, apelido)
+            VALUES (
+                ${Date.now().toString()},
+                "${nome}",
+                "${email}",
+                "${apelido}"
+            );
+        `)
+           if (!nome || !email || !apelido) {
+           return res.status(422).send({ error: "Preencha todos os campos corretamente!"})
+            }
+```
+Ela ainda funciona? Você recebe uma mensagem de erro caso tenha passado algum parâmetro errado? E com essa mensagem de erro, a tabela é ou não atualizada?
 
 Ótimo, acho que já deu pra entender um pouco do Knex RAW, né? Vamos então ao Knex: [Query Builder](./Passo-5.md)?
