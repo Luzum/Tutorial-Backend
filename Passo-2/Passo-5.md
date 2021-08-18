@@ -276,3 +276,5 @@ const deletaPessoa = async (req: Request, res:Response): Promise<any> =>{
     }
 }
 ```
+
+Agora que já sabemos um pouco do knex vamos voltar aos bancos de dados e aprender sobre [Relações em SQL](./Passo-6.md)?
