@@ -189,4 +189,4 @@ Tente brincar um pouco com o corpo da requisição no arquivo request.rest. Se v
 ```
 Ela ainda funciona? Você recebe uma mensagem de erro caso tenha passado algum parâmetro errado? E com essa mensagem de erro, a tabela é ou não atualizada?
 
-Ótimo, acho que já deu pra entender um pouco do Knex RAW, né? Vamos então ao Knex: [Query Builder](./Passo-5.md)?
+Ótimo, acho que já deu pra entender um pouco do Knex RAW, né? Vamos então ao [Knex: Query Builder](./Passo-5.md)?
