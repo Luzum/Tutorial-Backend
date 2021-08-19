@@ -153,4 +153,4 @@ Mais uma coisa, quando usarmos um banco de dados tipo o MySql, para deletar um o
 
 Lê [aqui](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
 
-Vamos relembrar um pouco do que vimos até agora? Clica ali:[Resumo](../Passo-2/Passo-1.md)
+Vamos relembrar um pouco do que vimos até [agora](../Passo-2/Passo-1.md)?
