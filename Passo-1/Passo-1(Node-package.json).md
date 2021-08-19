@@ -117,4 +117,4 @@ npm run start
 
 ```
 
-Vamos ao [Passo-2](./Passo-2(typescript).md)?
+Vamos ver um pouco de  [TypeScript](./Passo-2(typescript).md)?

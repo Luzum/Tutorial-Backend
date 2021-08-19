@@ -59,7 +59,5 @@ npm i express cors
 npm i -D @types/node  @types/express @types/cors typescript ts-node-dev
 ```
 
-Clique [aqui](./P
-
-asso-2.md) para a próxima seção!
+Vamos aprender mais sobre [APIs REST](./Passo-2.md)?
 

@@ -52,6 +52,7 @@ Isso irá gerar um arquivo tsconfig.json que terá a seguinte configuração:
 ![tsconfig.json](https://i.imgur.com/q1Qt4AY.png)
 
 **Configurando o tsconfig.json**
+
 Neste arquivo, precisamos fazer algumas configurações básicas:
 
 1. Na linha 7 devemos mudar o "target" para "es6"
@@ -60,6 +61,7 @@ Neste arquivo, precisamos fazer algumas configurações básicas:
 4. Na linha 18, devemos definir o rootDir como "./src"
 **O arquivo fica assim:**
 ![tsconfig.json](https://i.imgur.com/5xSGPCM.png)
+
 **Criando as pastas src e build**
 
 Como demos o endereço das pastas src e build para o rootDir e o outDir respectivamente, devemos criá-las para guardar os arquivos TS e o JS para isso utilizaremos dentro do terminal:
@@ -103,4 +105,4 @@ tsc --init
 // cria um arquivo de configuração do typescript
 
 ```
-Vamos ao [Passo-3](./Passo-3(express.js).md)?
+Vamos ver a biblioteca [Express](./Passo-3(express.js).md)?

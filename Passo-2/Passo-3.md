@@ -184,4 +184,4 @@ O MySQL possui funções nativas, mas sinceramente ao invés de botar elas nesse
 
 Ah! Vale a pena olhar também as cláusulas [GROUP BY](https://www.w3schools.com/mysql/mysql_groupby.asp), [ORDER BY](https://www.w3schools.com/mysql/mysql_orderby.asp) e [LIMIT](https://www.w3schools.com/mysql/mysql_limit.asp).
 
-Vamos então conhecer o [knex](./Passo-4.md)?
+Vamos então conhecer a biblioteca [Knex](./Passo-4.md)?
