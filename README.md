@@ -2,7 +2,7 @@
 
 Tutorial para os primeiros passos no backend, baseado nas aulas que tive na Labenu e também em outros materiais que encontrei pela internet :)
 
-## **Índice:**
+# **Índice**
 
 ## Primeiros passos do back:
 * [Node_package.json](./Passo-1/Passo-1(Node-package.json).md)
@@ -19,4 +19,4 @@ Tutorial para os primeiros passos no backend, baseado nas aulas que tive na Labe
 * [Knex RAW](./Passo-2/Passo-4.md)
 * [Knex Query Builder](./Passo-2/Passo-5.md)
 * [Relações no MYSQL](./Passo-2/Passo-6.md)
-* [Filtros, ordenação e paginação](./Passo-7.md)
+* [Filtros, ordenação e paginação](./Passo-2/Passo-7.md)
