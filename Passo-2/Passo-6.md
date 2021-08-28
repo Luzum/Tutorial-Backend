@@ -168,5 +168,25 @@ ON id_vendedor = vendedores.id;
 ```
 Vá explorando as possibilidades!
 
+**Abreviação:**
+
+Podemos abreviar os nomes de nossas tabelas para deixar as consultas menos extensas da seguinte forma:
+```
+SELECT id_produto, c.nome, p.nome AS produto_organico, preço, v.nome AS vendedor FROM compras
+JOIN consumidores c
+ON id_consumidor = c.id
+JOIN produtos AS p
+ON id_produto = p.id
+JOIN vendedores v
+ON id_vendedor = v.id;
+```
+Basta colocar logo **após** o nome da tabela a abreviação que você quer usar. Não precisamos obrigatoriamente utilizar o operador AS para fazer isso, faça da maneira que for mais confortável para você! . Lembre-se que ao abreviar em sua consulta todas as referências àquela coluna agora **deverão** ser abreviadas! Se você tentasse no primeiro JOIN utilizar:
+```
+JOIN consumidores c
+ON id_consumidor = consumidores.id
+```
+receberia um erro! Ou você opta por abreviar (que pode ser um pouco confuso no começo) ou utiliza o nome completo da tabela sempre!
 
 **Importante**: JOIN é uma abreviação para o comando INNER JOIN, existem vários tipos de JOIN, não me aprofundarei neles aqui, mas da para ver mais no [w3schools](https://www.w3schools.com/mysql/mysql_join.asp)
+
+Agora vamos ver como fazer filtros, ordenação e paginação no backend? Clica [aqui](./Passo-7.md)!
