@@ -384,4 +384,7 @@ const offset = (pagina-1) * 3
 ```
 (2-1)*3 = 3. O offset cortaria as 3 primeiras pessoas e nos mostraria a lista a partir da quarta.
 
-Agora é sua vez de treinar, se quiser adicione mais pessoas à lista para brincar mais com a paginação e entender melhor o limit e o offset. Por fim tente fazer um endpoint que use **todas** as funcionalidades aprendidas! Filtre por nome, tipo, ordene crescentemente a partir do nome e faça uma paginação que tenha a página 1 como padrão!
+Agora é sua vez de treinar, se quiser adicione mais pessoas à lista para brincar mais com a paginação e entender melhor o limit e o offset. Por fim tente fazer um endpoint que use **todas** as funcionalidades aprendidas! Filtre por nome, tipo, id, ordene crescentemente a partir do nome, e faça uma paginação que tenha a página 1 como padrão! Teste, pense de quais maneiras você pode filtrar essa lista.
+
+
+Agora vamos ver como utilizar serviços no backend? Clica [aqui](./Passo-7.md).
