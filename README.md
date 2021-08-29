@@ -20,3 +20,4 @@ Tutorial para os primeiros passos no backend, baseado nas aulas que tive na Labe
 * [Knex Query Builder](./Passo-2/Passo-5.md)
 * [Relações no MYSQL](./Passo-2/Passo-6.md)
 * [Filtros, ordenação e paginação](./Passo-2/Passo-7.md)
+* [Serviços e integrações de APIs](./Passo-2/Passo-8.md)
