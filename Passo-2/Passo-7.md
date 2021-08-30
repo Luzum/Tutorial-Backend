@@ -215,7 +215,7 @@ Isso ocorreu comigo quando eu estava escrevendo e testando esse código, mas foi
 
 Por que separar o código assim? Apesar de dar um pouco mais de trabalho na hora do desenvolvimento, fica mais fácil de fazer  a manutenção depois. É claro que por enquanto estamos fazendo APIs muito pequenas que mexem com poucos dados e usam poucos endpoints, então para a gente não faz muita diferença. Mas ao mesmo tempo é bom ir se acostumando a ir dividindo o código em pequenas partes para depois já estarmos um pouco melhor preparados quando formos trabalhar em aplicações maiores com arquiteturas definidas.  
 
-Ok, vamos fazer mais um endpoint, desta vez para filtrar por nome via **query** params, mas com algumas condições: se não passarmos um nome, devemos receber a lista completa. Se passarmos apenas uma ou mais letras, mas não um nome completo, devemos receber de volta as pessoas que contém aquelas letras no nome. Também queremos que a lista venha em ordem **decrescente** por padrão a partir do nome, ou se não especificarmos a partir do id. Vamos lá?
+Ok, vamos fazer mais um endpoint, desta vez para filtrar por nome via **query** params, mas com algumas condições: se não passarmos um nome, devemos receber a lista completa. Se passarmos apenas uma ou mais letras, mas não um nome completo, devemos receber de volta as pessoas que contém aquelas letras no nome. Também queremos que a lista venha em ordem **decrescente** por padrão a partir do id, podendo ser também pelo nome caso o usuário especifique. Vamos lá?
 
 Primeiro em nosso arquivo escolherUsuarioPorNome.ts (na pasta data):
 ```
